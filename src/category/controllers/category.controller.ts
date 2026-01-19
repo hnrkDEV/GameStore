@@ -13,7 +13,7 @@ import {
 import { Category } from '../entities/category.entity';
 import { CategoryService } from '../services/category.service';
 
-@Controller('/categories')
+@Controller('/categorias')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 

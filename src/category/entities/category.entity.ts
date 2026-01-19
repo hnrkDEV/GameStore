@@ -2,9 +2,11 @@ import { IsNotEmpty } from 'class-validator';
 import {
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Product } from '../../product/entities/product.entity';
 
 @Entity({ name: 'tb_categories' })
 export class Category {
@@ -21,4 +23,7 @@ export class Category {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Product, (product) => product.category)
+  products: Product[];
 }
