@@ -11,7 +11,7 @@ O projeto foi construído com **NestJS + TypeORM**, utilizando **DTOs**, **inje�
 - **Node.js** (recomendado: v20 LTS)
 - **NestJS**
 - **TypeORM**
-- **MySQL / PostgreSQL** (via TypeORM)
+- **MySQL** (via TypeORM)
 - **TypeScript**
 - **reflect-metadata**
 
@@ -27,14 +27,12 @@ src/
  │   ├── controllers/
  │   ├── services/
  │   ├── entities/
- │   ├── dto/
  │   └── product.module.ts
  │
  ├── category/
  │   ├── controllers/
  │   ├── services/
  │   ├── entities/
- │   ├── dto/
  │   └── category.module.ts
  │
  ├── app.module.ts
@@ -70,15 +68,18 @@ O relacionamento é gerenciado via TypeORM utilizando `@ManyToOne` e `@OneToMany
 
 ### Endpoint
 ```
-POST /products
+POST /produtos
 ```
 
 ### Body (JSON)
 ```json
 {
   "name": "God of War Ragnarök",
+  "description": "Descrição do jogo"
   "price": 299.90,
-  "categoryId": 1
+  "category": {
+   "id": 1
+}
 }
 ```
 
@@ -88,7 +89,6 @@ O backend valida a categoria antes de salvar o produto, garantindo integridade d
 
 ## Boas Práticas Aplicadas
 
-- Uso de **DTOs** para entrada de dados
 - Validação de relacionamentos antes de persistir
 - Injeção correta de repositórios com `@InjectRepository`
 - Separação clara entre **Controller**, **Service** e **Entity**
@@ -104,14 +104,6 @@ npm install
 ```
 
 ### 2️⃣ Configurar banco de dados
-Crie um arquivo `.env` com as variáveis:
-```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USERNAME=root
-DB_PASSWORD=senha
-DB_NAME=gamestore
-```
 
 ### 3️⃣ Rodar a aplicação
 ```bash
@@ -125,14 +117,6 @@ http://localhost:3000
 
 ---
 
-## ⚠️ Observações Importantes
-
-- Recomenda-se utilizar **Node.js v20 LTS**
-- Node v22 pode causar problemas com decorators e metadata no NestJS
-- Sempre importar `reflect-metadata` no `main.ts`
-
----
-
 ## 📌 Próximos Passos (Evoluções Futuras)
 
 - Autenticação (JWT)
@@ -143,7 +127,7 @@ http://localhost:3000
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
 Projeto desenvolvido para fins de estudo e prática em **NestJS + TypeORM**, aplicando conceitos reais de backend utilizados no mercado.
 
