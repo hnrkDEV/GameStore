@@ -1,4 +1,4 @@
-# 🎮 GameStore API
+# GameStore API
 
 API backend desenvolvida em **NestJS** para gerenciamento de uma loja de games, com foco em **produtos**, **categorias** e boas práticas de arquitetura backend.
 
@@ -6,7 +6,7 @@ O projeto foi construído com **NestJS + TypeORM**, utilizando **DTOs**, **inje�
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Node.js** (recomendado: v20 LTS)
 - **NestJS**
@@ -17,7 +17,7 @@ O projeto foi construído com **NestJS + TypeORM**, utilizando **DTOs**, **inje�
 
 ---
 
-## 🧱 Arquitetura do Projeto
+## Arquitetura do Projeto
 
 O projeto segue a arquitetura modular do NestJS:
 
@@ -45,19 +45,19 @@ Cada módulo é responsável pelo seu próprio domínio, respeitando o princípi
 
 ---
 
-## 🗂️ Entidades Principais
+## Entidades Principais
 
-### 📦 Product
+### Product
 - Representa um produto da loja
 - Relacionamento **ManyToOne** com Category
 
-### 🏷️ Category
+### Category
 - Representa a categoria do produto
 - Relacionamento **OneToMany** com Product
 
 ---
 
-## 🔗 Relacionamentos
+## Relacionamentos
 
 - Um **produto** pertence a **uma categoria**
 - Uma **categoria** pode possuir **vários produtos**
@@ -66,7 +66,7 @@ O relacionamento é gerenciado via TypeORM utilizando `@ManyToOne` e `@OneToMany
 
 ---
 
-## 📥 Criação de Produto (Exemplo)
+## Criação de Produto (Exemplo)
 
 ### Endpoint
 ```
@@ -86,7 +86,7 @@ O backend valida a categoria antes de salvar o produto, garantindo integridade d
 
 ---
 
-## 🧠 Boas Práticas Aplicadas
+## Boas Práticas Aplicadas
 
 - Uso de **DTOs** para entrada de dados
 - Validação de relacionamentos antes de persistir
